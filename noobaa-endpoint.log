@@ -1,0 +1,68 @@
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.396 [Endpoint/13]    [L0] core.sdk.object_sdk:: validate_non_nsfs_bucket:  { name: SENSITIVE-146b13fd583376bc, email: SENSITIVE-146b13fd583376bc, is_external: true, access_keys: [ { access_key: SENSITIVE-3aa17b14d371e806, secret_key: SENSITIVE-a0df9ffa54d4ac67 } ], has_login: true, has_s3_access: true, allowed_buckets: { full_permission: true }, default_resource: 'noobaa-default-backing-store', can_create_buckets: true, systems: [ { name: 'noobaa', roles: [ 'admin' ] } ], external_connections: { count: 0, connections: [] }, preferences: { ui_theme: 'DARK' } } { endpoint_type: 'AZURE', endpoint: 'https://blob.core.windows.net', target_bucket: 'test', access_key: SENSITIVE-39376aadc0711fac, secret_key: SENSITIVE-b13e15eea51cc379, id: '61c445ccb004be00298b56d3', name: 'test' }
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.396 [Endpoint/13]    [L0] core.sdk.namespace_blob:: NamespaceBlob.read_object_md: test { bucket: 'test', key: 'test-s-p-w/parquet_write_test.parquet', version_id: undefined, md_conditions: undefined, encryption: undefined }
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.406 [Endpoint/13]  [WARN] core.sdk.namespace_blob:: NamespaceBlob.read_object_md: RestError:  
+noobaa-endpoint-74dc99df55-gl8js  {
+noobaa-endpoint-74dc99df55-gl8js   "name": "RestError",
+noobaa-endpoint-74dc99df55-gl8js   "statusCode": 404,
+noobaa-endpoint-74dc99df55-gl8js   "request": {
+noobaa-endpoint-74dc99df55-gl8js     "streamResponseStatusCodes": {},
+noobaa-endpoint-74dc99df55-gl8js     "url": "https://<REDACTED>.blob.core.windows.net/test/test-s-p-w%2Fparquet_write_test.parquet",
+noobaa-endpoint-74dc99df55-gl8js     "method": "HEAD",
+noobaa-endpoint-74dc99df55-gl8js     "headers": {
+noobaa-endpoint-74dc99df55-gl8js       "_headersMap": {
+noobaa-endpoint-74dc99df55-gl8js         "x-ms-version": "REDACTED",
+noobaa-endpoint-74dc99df55-gl8js         "accept": "application/xml",
+noobaa-endpoint-74dc99df55-gl8js         "x-ms-encryption-algorithm": "REDACTED",
+noobaa-endpoint-74dc99df55-gl8js         "user-agent": "azsdk-js-storageblob/12.8.0 (NODE-VERSION v14.17.6; Linux 4.18.0-305.34.2.el8_4.x86_64)",
+noobaa-endpoint-74dc99df55-gl8js         "x-ms-client-request-id": "7b0e7e5b-95b7-45b0-a1c6-d39eafffbaea",
+noobaa-endpoint-74dc99df55-gl8js         "x-ms-date": "REDACTED",
+noobaa-endpoint-74dc99df55-gl8js         "authorization": "REDACTED",
+noobaa-endpoint-74dc99df55-gl8js         "cookie": "REDACTED"
+noobaa-endpoint-74dc99df55-gl8js       }
+noobaa-endpoint-74dc99df55-gl8js     },
+noobaa-endpoint-74dc99df55-gl8js     "withCredentials": false,
+noobaa-endpoint-74dc99df55-gl8js     "timeout": 0,
+noobaa-endpoint-74dc99df55-gl8js     "keepAlive": true,
+noobaa-endpoint-74dc99df55-gl8js     "decompressResponse": false,
+noobaa-endpoint-74dc99df55-gl8js     "requestId": "7b0e7e5b-95b7-45b0-a1c6-d39eafffbaea"
+noobaa-endpoint-74dc99df55-gl8js   },
+noobaa-endpoint-74dc99df55-gl8js   "details": {
+noobaa-endpoint-74dc99df55-gl8js     "errorCode": "BlobNotFound",
+noobaa-endpoint-74dc99df55-gl8js     "date": "Thu, 03 Mar 2022 06:37:50 GMT",
+noobaa-endpoint-74dc99df55-gl8js     "server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+noobaa-endpoint-74dc99df55-gl8js     "transfer-encoding": "chunked",
+noobaa-endpoint-74dc99df55-gl8js     "x-ms-client-request-id": "7b0e7e5b-95b7-45b0-a1c6-d39eafffbaea",
+noobaa-endpoint-74dc99df55-gl8js     "x-ms-request-id": "9ba68523-701e-0133-79c9-2e0a7f000000",
+noobaa-endpoint-74dc99df55-gl8js     "x-ms-version": "2020-10-02"
+noobaa-endpoint-74dc99df55-gl8js   },
+noobaa-endpoint-74dc99df55-gl8js   "message": ""
+noobaa-endpoint-74dc99df55-gl8js }
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.406 [Endpoint/13] [ERROR] core.rpc.rpc_schema:: INVALID_SCHEMA_PARAMS CLIENT pool_api#/methods/update_issues_report ERRORS: [ { instancePath: '', schemaPath: 'pool_api#/methods/update_issues_report/params/required', keyword: 'required', params: { missingProperty: 'error_code' }, message: "must have required property 'error_code'", schema: [ 'namespace_resource_id', 'time', 'error_code', [length]: 3 ], parentSchema: { type: 'object', required: [ 'namespace_resource_id', 'time', 'error_code', [length]: 3 ], properties: { time: { idate: true }, error_code: { type: 'string' }, namespace_resource_id: { objectid: true }, monitoring: { type: 'boolean' } }, additionalProperties: false }, data: { namespace_resource_id: '61c445ccb004be00298b56d3', error_code: undefined, time: 1646289470406 } }, [length]: 1 ] PARAMS: { namespace_resource_id: '61c445ccb004be00298b56d3', error_code: undefined, time: 1646289470406 }
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.407 [Endpoint/13] [ERROR] core.rpc.rpc:: RPC._request: response ERROR srv pool_api.update_issues_report reqid <no-reqid-yet> connid <no-connection-yet> params { namespace_resource_id: '61c445ccb004be00298b56d3', error_code: undefined, time: 1646289470406 }  Error: INVALID_SCHEMA_PARAMS CLIENT pool_api#/methods/update_issues_report
+noobaa-endpoint-74dc99df55-gl8js     at Object.method_api.validate_params (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:119:31)
+noobaa-endpoint-74dc99df55-gl8js     at RPC._request (/root/node_modules/noobaa-core/src/rpc/rpc.js:205:32)
+noobaa-endpoint-74dc99df55-gl8js     at Object._invoke_api (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:170:33)
+noobaa-endpoint-74dc99df55-gl8js     at Object.api_proto.<computed> [as update_issues_report] (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:197:40)
+noobaa-endpoint-74dc99df55-gl8js     at NamespaceBlob.read_object_md (/root/node_modules/noobaa-core/src/sdk/namespace_blob.js:141:40)
+noobaa-endpoint-74dc99df55-gl8js     at runMicrotasks (<anonymous>)
+noobaa-endpoint-74dc99df55-gl8js     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+noobaa-endpoint-74dc99df55-gl8js     at async Object.head_object [as handler] (/root/node_modules/noobaa-core/src/endpoint/s3/ops/s3_head_object.js:27:23)
+noobaa-endpoint-74dc99df55-gl8js     at async handle_request (/root/node_modules/noobaa-core/src/endpoint/s3/s3_rest.js:149:19)
+noobaa-endpoint-74dc99df55-gl8js     at async Object.s3_rest [as handler] (/root/node_modules/noobaa-core/src/endpoint/s3/s3_rest.js:68:9)
+noobaa-endpoint-74dc99df55-gl8js Mar-3 6:37:50.407 [Endpoint/13] [ERROR] core.endpoint.s3.s3_rest:: S3 ERROR <?xml version="1.0" encoding="UTF-8"?><Error><Code>InternalError</Code><Message>We encountered an internal error. Please try again.</Message><Resource>/test/test-s-p-w/parquet_write_test.parquet</Resource><RequestId>l0am8t6j-asun0f-10ia</RequestId></Error> HEAD /test/test-s-p-w/parquet_write_test.parquet {"amz-sdk-invocation-id":"70fc1fe1-fc0b-9ce0-5443-7134a3be2708","amz-sdk-request":"ttl=20220303T064110Z;attempt=8;max=21","amz-sdk-retry":"7/3044/465","authorization":"AWS4-HMAC-SHA256 Credential=K6YttIsiZano7JwZbeAJ/20220303/bdp-noobaa-test/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;amz-sdk-retry;content-type;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=9c055f73dae3170dc0c16740ea8fc78de33c5db2b9d3e82fbb3ff48157900169","content-type":"application/octet-stream","user-agent":"Hadoop 3.3.1, aws-sdk-java/1.12.161 Linux/5.10.16.3-microsoft-standard-WSL2 OpenJDK_64-Bit_Server_VM/11.0.13+8-Ubuntu-0ubuntu1.20.04 java/11.0.13 scala/2.12.15 vendor/Ubuntu cfg/retry-mode/legacy","x-amz-content-sha256":"UNSIGNED-PAYLOAD","x-amz-date":"20220303T063750Z","x-forwarded-for":"80.246.32.33, 100.66.24.196","x-forwarded-host":"<NOOBAA_S3_CLUSTER_ROUTE>, <NOOBAA_S3_CLUSTER_ROUTE>","x-forwarded-server":"<CLUSTER_ROUTE>","host":"<NOOBAA_S3_CLUSTER_ROUTE>","x-forwarded-port":"443","x-forwarded-proto":"https","forwarded":"for=<NOOBAA_IP>;host=<NOOBAA_S3_CLUSTER_ROUTE>;proto=https"} RestError
+noobaa-endpoint-74dc99df55-gl8js     at handleErrorResponse (/root/node_modules/noobaa-core/node_modules/@azure/core-http/dist/index.js:3140:19)
+noobaa-endpoint-74dc99df55-gl8js     at /root/node_modules/noobaa-core/node_modules/@azure/core-http/dist/index.js:3076:49
+noobaa-endpoint-74dc99df55-gl8js     at runMicrotasks (<anonymous>)
+noobaa-endpoint-74dc99df55-gl8js     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+noobaa-endpoint-74dc99df55-gl8js (node:13) UnhandledPromiseRejectionWarning: Error: INVALID_SCHEMA_PARAMS CLIENT pool_api#/methods/update_issues_report
+noobaa-endpoint-74dc99df55-gl8js     at Object.method_api.validate_params (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:119:31)
+noobaa-endpoint-74dc99df55-gl8js     at RPC._request (/root/node_modules/noobaa-core/src/rpc/rpc.js:205:32)
+noobaa-endpoint-74dc99df55-gl8js     at Object._invoke_api (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:170:33)
+noobaa-endpoint-74dc99df55-gl8js     at Object.api_proto.<computed> [as update_issues_report] (/root/node_modules/noobaa-core/src/rpc/rpc_schema.js:197:40)
+noobaa-endpoint-74dc99df55-gl8js     at NamespaceBlob.read_object_md (/root/node_modules/noobaa-core/src/sdk/namespace_blob.js:141:40)
+noobaa-endpoint-74dc99df55-gl8js     at runMicrotasks (<anonymous>)
+noobaa-endpoint-74dc99df55-gl8js     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+noobaa-endpoint-74dc99df55-gl8js     at async Object.head_object [as handler] (/root/node_modules/noobaa-core/src/endpoint/s3/ops/s3_head_object.js:27:23)
+noobaa-endpoint-74dc99df55-gl8js     at async handle_request (/root/node_modules/noobaa-core/src/endpoint/s3/s3_rest.js:149:19)
+noobaa-endpoint-74dc99df55-gl8js     at async Object.s3_rest [as handler] (/root/node_modules/noobaa-core/src/endpoint/s3/s3_rest.js:68:9)
+noobaa-endpoint-74dc99df55-gl8js (node:13) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 501)
